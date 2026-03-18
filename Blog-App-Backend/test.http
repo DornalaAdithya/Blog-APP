@@ -1,0 +1,19 @@
+### Normal user login
+POST http://localhost:4000/common-api/login
+Content-Type: application/json
+
+{
+    "email":"kumarvijay@gmail.com",
+    "password":"vjkm@123"
+}
+
+
+### logout
+GET http://localhost:4000/common-api/logout
+
+
+### read all availble articles by user
+GET http://localhost:4000/user-api/articles
+
+### read articles by the author
+GET http://localhost:4000/author-api/articles/69899b721aa0fc0df4be626a
