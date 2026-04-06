@@ -16,7 +16,7 @@ const app = exp();
 //use cors middleware
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://your-app.vercel.app"],
+    origin: ["http://localhost:5173", "https://blog-app-flax-three.vercel.app"],
     credentials: true,
   }),
 );
