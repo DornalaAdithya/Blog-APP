@@ -16,8 +16,8 @@ commonRoute.post("/login", async (req, res) => {
     //save token as httpOnlyCookie
     res.cookie("token", token, {
       httpOnly: true,
-      sameSite: "lax",
-      secure: false,
+      sameSite: "none",
+      secure: true,
     });
     //send res
     return res.status(200).json({ message: "Login Successful", payload: user });
@@ -39,8 +39,8 @@ commonRoute.get("/logout", async (req, res) => {
   // Clear the cookie named 'token'
   res.clearCookie("token", {
     httpOnly: true, // Must match original  settings
-    secure: false, // Must match original  settings
-    sameSite: "lax", // Must match original  settings
+    secure: true, // Must match original  settings
+    sameSite: "none", // Must match original  settings
   });
   res.status(200).json({ message: "Logged out Successfully" });
 });
