@@ -42,7 +42,7 @@ function ArticleByID() {
       setLoading(true);
 
       try {
-        const res = await axios.get(`http://localhost:4000/user-api/article/${id}`, { withCredentials: true });
+        const res = await axios.get(`/user-api/article/${id}`, { withCredentials: true });
 
         setArticle(res.data.payload);
       } catch (err) {
@@ -71,11 +71,7 @@ function ArticleByID() {
     if (!window.confirm(confirmMsg)) return;
 
     try {
-      const res = await axios.patch(
-        `http://localhost:4000/author-api/articles/${id}/status`,
-        { isActiveArticle: newStatus },
-        { withCredentials: true },
-      );
+      const res = await axios.patch(`/author-api/articles/${id}/status`, { isActiveArticle: newStatus }, { withCredentials: true });
 
       console.log("SUCCESS:", res.data);
 
@@ -102,7 +98,7 @@ function ArticleByID() {
   const commentForm = async (commentObj) => {
     const comments = { articleId: id, comment: commentObj.comment };
     try {
-      const res = await axios.post("http://localhost:4000/user-api/articles", comments, { withCredentials: true });
+      const res = await axios.post("/user-api/articles", comments, { withCredentials: true });
       toast.success("comment successful");
       setArticle(res.data.payload);
     } catch (err) {

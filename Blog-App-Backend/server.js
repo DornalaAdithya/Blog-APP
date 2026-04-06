@@ -14,7 +14,12 @@ config(); //process.env //used to access the env variable's
 const app = exp();
 
 //use cors middleware
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://your-app.vercel.app"],
+    credentials: true,
+  }),
+);
 //add body parser middleware
 app.use(exp.json());
 //add cookie parser middleware

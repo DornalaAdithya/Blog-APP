@@ -45,7 +45,7 @@ function Register() {
       // console.log(userObj);
       if (role === "USER") {
         //make API req to user-api
-        const resObj = await axios.post("http://localhost:4000/user-api/users", formData);
+        const resObj = await axios.post("/user-api/users", formData);
         // console.log(resObj);
         // const res = resObj.data;
         // console.log(res);
@@ -55,7 +55,7 @@ function Register() {
       }
       if (role === "AUTHOR") {
         //make API req to user-api
-        const resObj = await axios.post("http://localhost:4000/author-api/users", formData);
+        const resObj = await axios.post("/author-api/users", formData);
         // const res = resObj.data;
         // console.log(res);
         if (resObj.status === 201) {

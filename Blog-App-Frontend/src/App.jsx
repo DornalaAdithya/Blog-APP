@@ -16,6 +16,10 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { Toaster } from "react-hot-toast";
 import { loadingClass } from "./styles/common";
 import ErrorBoundary from "./components/ErrorBoundary";
+import axios from "axios";
+
+axios.defaults.baseURL = "https://blog-app-z7aa.onrender.com";
+axios.defaults.withCredentials = true;
 
 function App() {
   const { checkAuth, loading } = useAuth();

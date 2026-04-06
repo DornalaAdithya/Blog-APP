@@ -25,7 +25,7 @@ function WriteArticle() {
     //add authorId to articleObj
     articleObj.author = currentUser._id;
     try {
-      await axios.post("http://localhost:4000/author-api/articles", articleObj, { withCredentials: true });
+      await axios.post("/author-api/articles", articleObj, { withCredentials: true });
 
       toast.success("Article published successfully!");
 

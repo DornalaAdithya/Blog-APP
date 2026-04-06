@@ -27,7 +27,7 @@ function UserDashBoard() {
       // console.log("useEffect");
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:4000/user-api/articles", { withCredentials: true });
+        const res = await axios.get("/user-api/articles", { withCredentials: true });
         // console.log(res.data.payload);
         setArticles(res.data.payload);
       } catch (err) {
