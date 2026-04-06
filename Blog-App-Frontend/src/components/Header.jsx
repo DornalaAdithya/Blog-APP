@@ -1,0 +1,90 @@
+import { NavLink, useNavigate } from "react-router";
+import { useAuth } from "../stores/authStore";
+import { navbarClass, navContainerClass, navBrandClass, navLinksClass, navLinkClass, navLinkActiveClass } from "../styles/common";
+
+function Header() {
+  const isAuthenticated = useAuth((state) => state.isAuthenticated);
+  const user = useAuth((state) => state.currentUser);
+  const logout = useAuth((state) => state.logout);
+
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate("/login");
+  };
+
+  // decide profile route based on role
+  const getProfilePath = () => {
+    if (!user) return "/";
+
+    console.log("current user", user);
+    switch (user.role) {
+      case "AUTHOR":
+        return "/author-profile";
+      case "ADMIN":
+        return "/admin-profile";
+      default:
+        return "/user-profile";
+    }
+  };
+
+  return (
+    <nav className={navbarClass}>
+      <div className={navContainerClass}>
+        {/* Logo */}
+        <NavLink to="/" className={navBrandClass}>
+          MyBlog
+        </NavLink>
+
+        <ul className={navLinksClass}>
+          {/* Always visible */}
+          <li>
+            <NavLink to="/" end className={({ isActive }) => (isActive ? navLinkActiveClass : navLinkClass)}>
+              Home
+            </NavLink>
+          </li>
+
+          {/* Not logged in */}
+          {!isAuthenticated && (
+            <>
+              <li>
+                <NavLink to="/register" className={({ isActive }) => (isActive ? navLinkActiveClass : navLinkClass)}>
+                  Register
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/login" className={({ isActive }) => (isActive ? navLinkActiveClass : navLinkClass)}>
+                  Login
+                </NavLink>
+              </li>
+            </>
+          )}
+
+          {/* Logged in */}
+          {isAuthenticated && (
+            <>
+              <li>
+                <NavLink to={getProfilePath()} className={({ isActive }) => (isActive ? navLinkActiveClass : navLinkClass)}>
+                  Profile
+                </NavLink>
+              </li>
+
+              <li className="flex gap-4 items-center">
+                <div>
+                  <img src={user.profileImageUrl} alt="image" className="w-10 rounded-[50%]" />
+                </div>
+                <button className={`bg-red-500 text-white rounded px-2 h-8 cursor-pointer hover:bg-red-600`} onClick={handleLogout}>
+                  Logout
+                </button>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
+    </nav>
+  );
+}
+
+export default Header;
