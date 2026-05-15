@@ -26,7 +26,7 @@ export const secondaryBtn =
 export const ghostBtn = "text-[#0066cc] font-medium hover:text-[#004499] transition-colors cursor-pointer text-sm";
 
 // ─── Forms ────────────────────────────────────────────
-export const formCard = "bg-[#f5f5f7] rounded-2xl p-10 max-w-4xl mx-auto";
+export const formCard = "bg-[#f5f5f9] rounded-2xl p-10 max-w-4xl mx-auto";
 export const formTitle = "text-2xl font-bold text-[#1d1d1f] tracking-tight text-center mb-7";
 export const labelClass = "text-xs font-medium text-[#6e6e73] mb-1.5 block";
 export const inputClass =
@@ -38,9 +38,9 @@ export const submitBtn =
 // ─── Navbar ───────────────────────────────────────────
 export const navbarClass =
   "bg-white/85 backdrop-blur-xl backdrop-saturate-150 border-b border-[#e8e8ed] px-8 h-[52px] flex items-center sticky top-0 z-50";
-export const navContainerClass = "max-w-5xl mx-auto w-full flex items-center justify-between";
+export const navContainerClass = "max-w-8xl mx-auto w-full flex items-center justify-between";
 export const navBrandClass = "text-base font-semibold text-[#1d1d1f] tracking-tight";
-export const navLinksClass = "flex items-center gap-7";
+export const navLinksClass = "flex items-center gap-12";
 export const navLinkClass = "text-[0.8rem] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors font-normal";
 export const navLinkActiveClass = "text-[0.8rem] text-[#0066cc] font-medium underline decoration-sky-500 decoration-2 underline-offset-4";
 
@@ -56,7 +56,7 @@ export const timestampClass = "text-xs text-[#a1a1a6] flex items-center gap-1.5"
 export const tagClass = "text-[0.65rem] font-semibold text-[#0066cc] uppercase tracking-widest w-fit";
 
 // ─── Article Page ─────────────────────────────────────
-export const articlePageWrapper = "max-w-3xl mx-auto px-6 py-14";
+export const articlePageWrapper = "max-w-6xl mx-auto px-6 py-14";
 
 export const articleHeader = "mb-10 flex flex-col gap-4";
 

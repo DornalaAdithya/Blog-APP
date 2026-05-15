@@ -33,7 +33,7 @@ function ArticleByID() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
     if (article) return;
@@ -99,6 +99,7 @@ function ArticleByID() {
     const comments = { articleId: id, comment: commentObj.comment };
     try {
       const res = await axios.post("/user-api/articles", comments, { withCredentials: true });
+      reset();
       toast.success("comment successful");
       setArticle(res.data.payload);
     } catch (err) {
