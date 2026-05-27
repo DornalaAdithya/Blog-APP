@@ -1,73 +1,35 @@
-# Blog Platform
+# Full-Stack Blog Platform
 
-A full-stack blog application built with the MERN (MongoDB, Express.js, React, Node.js) stack. This platform allows users to read, create, and manage blog posts with role-based access control (User, Author, Admin).
+This repository houses the complete source code for a comprehensive, full-stack blogging platform. The project is divided into two distinct, decoupled environments: a React-based frontend client and an Express-based Node.js backend API.
 
-### Project Link
-https://blog-app-flax-three.vercel.app/
+## High-Level Architecture
 
-## Tech Stack
+The application follows a standard MERN (MongoDB, Express, React, Node.js) stack architecture.
+*   **Client Interface (`Blog-App-Frontend`)**: A Single Page Application (SPA) built with React 19 and Vite. It handles the presentation layer, complex state management, and role-based routing (Admin, Author, User).
+*   **Server API (`Blog-App-Backend`)**: A RESTful API built with Express.js. It manages database interactions with MongoDB, enforces business logic, handles secure password hashing, and issues JSON Web Tokens (JWT) for stateless authentication.
 
-### Frontend (`Blog-App-Frontend`)
-*   **Framework:** React 19 (via Vite)
-*   **Styling:** Tailwind CSS v4
-*   **State Management:** Zustand
-*   **Routing:** React Router v7
-*   **Form Handling:** React Hook Form
-*   **HTTP Client:** Axios
-*   **Notifications:** React Hot Toast
+## Directory Structure
 
-### Backend (`Blog-App-Backend`)
-*   **Framework:** Node.js with Express.js
-*   **Database:** MongoDB with Mongoose
-*   **Authentication:** JSON Web Tokens (JWT) & bcryptjs (password hashing)
-*   **File Uploads:** Multer & Cloudinary
-*   **Other Tools:** CORS, Cookie Parser, Dotenv
+*   `Blog-App-Frontend/`: Contains the React application code. Detailed documentation for the frontend architecture can be found in `Blog-App-Frontend/README.md`.
+*   `Blog-App-Backend/`: Contains the Node.js/Express server code. Detailed documentation for the backend architecture and API routes can be found in `Blog-App-Backend/README.md`.
 
-## Features (Inferred)
+## Quick Start Guide
 
-*   **Role-Based Access:** Distinct routes and functionalities for Users, Authors, and Admins.
-*   **Authentication:** Secure login and registration using JWT and HTTP-only cookies.
-*   **Article Management:** Authors can create and manage their blog posts.
-*   **Image Uploads:** Support for uploading cover images for blogs using Cloudinary.
-*   **Responsive UI:** Built with Tailwind CSS for a seamless experience across devices.
+To run this full-stack application locally, you will need to run both the frontend and backend development servers concurrently.
 
-## Getting Started
+### 1. Start the Backend Server
+1.  Navigate to the backend directory: `cd Blog-App-Backend`
+2.  Install dependencies: `npm install`
+3.  Configure your environment variables (see `Blog-App-Backend/README.md` for specific keys like `DB_URL`).
+4.  Start the server: `npm start`
 
-### Prerequisites
-*   Node.js installed on your machine
-*   MongoDB database (local or Atlas)
-*   Cloudinary account for image hosting
+### 2. Start the Frontend Client
+1.  Open a new terminal window.
+2.  Navigate to the frontend directory: `cd Blog-App-Frontend`
+3.  Install dependencies: `npm install`
+4.  Start the development server: `npm run dev`
 
-### Backend Setup
-1.  Navigate to the backend directory:
-    ```bash
-    cd Blog-App-Backend
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-3.  Create a `.env` file in the `Blog-App-Backend` directory and add your environment variables (e.g., `PORT`, `DB_URL`, `SECRET_KEY`, Cloudinary credentials).
-4.  Start the server:
-    ```bash
-    npm start # or node server.js
-    ```
+The frontend application is pre-configured via Axios to communicate with the backend. 
 
-### Frontend Setup
-1.  Navigate to the frontend directory:
-    ```bash
-    cd Blog-App-Frontend
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-3.  Start the development server:
-    ```bash
-    npm run dev
-    ```
-
-## Project Structure
-
-*   `Blog-App-Backend/`: Contains the Express.js server, API routes, Mongoose models, controllers, and middleware.
-*   `Blog-App-Frontend/`: Contains the React application, components, pages, Zustand stores, and assets.
+## Deployment
+The backend API is currently configured for deployment on Render. The frontend Axios configuration (`axios.defaults.baseURL`) points to `https://blog-app-z7aa.onrender.com` by default.
